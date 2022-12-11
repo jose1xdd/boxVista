@@ -24,10 +24,10 @@
 
 <body class="bg-gradient-primary">
 
-    <div class="container">
+    <div class="container mb-4">
         <div class="row justify-content-center">
 
-        <div class="col-xl-6 col-lg-6 col-md-6 mt-3">
+        <div class="mt-3">
             <div class="card o-hidden border-0 shadow-lg">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
@@ -38,15 +38,9 @@
                                     <h1 class="h4 text-gray-900 mb-4">Actualizar información de deportista</h1>
                                 </div>
                                 <form class="user">
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-user" id="nombre"
-                                                placeholder="Nombre">
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control form-user" id="apellido"
-                                                placeholder="Apellido">
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-user" id="nombre"
+                                            placeholder="Nombre">
                                     </div>
                                     <div class="form-group">
                                         <input type="email" class="form-control form-user" id="email"
@@ -89,9 +83,18 @@
                                                 id="contraseña" placeholder="Contraseña">
                                     </div>
                                     
-                                    <a href="tables.html" class="btn btn-primary btn-user btn-block">
-                                        Actualizar
-                                    </a>
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <a href="tables.html" class="btn btn-primary btn-user btn-block">
+                                                Volver
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <a href="tables.html" class="btn btn-primary btn-user btn-block">
+                                                Actualizar
+                                            </a>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -119,6 +122,8 @@
     <!-- Custom scripts for all pages-->
     <script src=" ../js/sb-admin-2.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/connection/actualizar.js"></script>
 </body>
 
 </html>
