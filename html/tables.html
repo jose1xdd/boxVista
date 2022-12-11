@@ -24,6 +24,33 @@
     <!-- Custom styles for this page -->
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <style>
+        html,
+        body,
+        .intro {
+        height: 100%;
+        }
+
+        table td,
+        table th {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        }
+
+        .card {
+        border-radius: .5rem;
+        }
+
+        .mask-custom {
+        background: rgba(24, 24, 16, .2);
+        border-radius: 2em;
+        backdrop-filter: blur(25px);
+        border: 2px solid rgba(255, 255, 255, 0.05);
+        background-clip: padding-box;
+        box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+    }
+    </style>
 </head>
 
 <body id="page-top">
@@ -90,7 +117,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="nombre"></span>
                             <img class="img-profile rounded-circle" src="">
                         </a>
                         <!-- Dropdown - User Information -->
@@ -123,85 +150,39 @@
                 <p class="mb-4">Registro de la base de datos de Deportistas</p>
 
                 <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-
-                    <div class="card-header py-3">
-                        <div class="container d-flex justify-content-between align-items-center">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-
-                            <button type="button" class="btn btn-primary">Registrar Deportista</button>
+                <section class="intro">
+                    <div class="bg-image h-100">
+                      <div class="mask d-flex align-items-center h-100">
+                        <div class="container">
+                          <div class="row justify-content-center">
+                            <div class="col-12">
+                              <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
+                                <div class="card-body">
+                                  <div class="table-responsive">
+                                    <table class="table table-borderless mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Correo Electronico</th>
+                                                <th>Informacion</th>
+                                                <th>Tests</th>
+                                                <th>Editar</th>
+                                                <th>Eliminar</th>
+        
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table">
+                                        </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Correo Electronico</th>
-                                        <th>Edad</th>
-                                        <th>Nombre</th>
-                                        <th>Informacion</th>
-                                        <th>Tests</th>
-                                        <th>Editar</th>
-                                        <th>Eliminar</th>
-
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Correo Electronico</th>
-                                        <th>Edad</th>
-                                        <th>Nombre</th>
-                                        <th>Informacion</th>
-                                        <th>Tests</th>
-                                        <th>Editar</th>
-                                        <th>Eliminar</th>
-
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td><div class="container text-center"><a class="text-center text-success" href="test.html"> <i class="fa-xl fa-solid fa-magnifying-glass"></i></a></div>
-                                        </td>
-                                        <th>
-                                            <div class="container text-center text-info"><a href="actualizar-info.html"> <i
-                                                        class="fa-xl fa-solid fa-pen-to-square"></i></a></div>
-                                        </th>
-                                        <th>
-                                            <div class="container text-center"><a class="text-danger" href=""> <i
-                                                        class="fa-xl fa-solid fa-square-xmark"></i></a></div>
-                                        </th>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>63</td>
-                                        <td><div class="container text-center"><a class="text-center text-success" href="test.html"> <i class="fa-xl fa-solid fa-magnifying-glass"></i></a></div>
-                                        </td>
-                                        <th>
-                                            <div class="container text-center text-info"><a href="actualizar-info.html"> <i
-                                                        class="fa-xl fa-solid fa-pen-to-square"></i></a></div>
-                                        </th>
-                                        <th>
-                                            <div class="container text-center"><a class="text-danger" href=""> <i
-                                                        class="fa-xl fa-solid fa-square-xmark"></i></a></div>
-                                        </th>
-
-                                    </tr>
-
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
+                  </section>
 
             </div>
             <!-- /.container-fluid -->
@@ -267,6 +248,8 @@
     <!-- Page level custom scripts -->
     <script src="../js/demo/datatables-demo.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/connection/tables.js"></script>
 </body>
 
 </html>
