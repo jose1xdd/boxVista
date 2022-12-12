@@ -12,6 +12,7 @@ login.addEventListener("click", () => {
     localStorage.setItem("token_access", response.data.access_token);
     localStorage.setItem("token_refresh", response.data.refresh_token);
     localStorage.setItem("user", email);
+    localStorage.setItem("password", password);
     location.href = "../../html/tables.html";
   })
   .catch((error) => {

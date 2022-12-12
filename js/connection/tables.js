@@ -21,23 +21,20 @@ async function getData() {
     nombre.innerHTML = localStorage.getItem("user");
     for(let i in response.data) {
       console.log(i);
-      table.innerHTML += `<tr>
+      table.innerHTML += `<tr class="text-center">
                             <td>${response.data[i].nombre}</td>
-                            <td>${response.data[i].email}</td>
+                            <td id=email-${i}>${response.data[i].email}</td>
                             <td>
-                              <div class="container text-center text-info"><a href="actualizar-info.html"> 
-                              <i class="fa fa-bars" aria-hidden="true"></i>
-                              </a></div>
+                              <button type="button" class="btn btn-primary" onclick="sendData(${i})">_</button>
                             </td>
-                            <td><div class="container text-center"><a class="text-center text-success" href="test.html"> <i class="fa-xl fa-solid fa-magnifying-glass"></i></a></div>
+                            <td>
+                              <button type="button" class="btn btn-warning" onclick="sendData(${i})">^</button>
                             </td>
                             <th>
-                                <div class="container text-center text-info"><a href="actualizar-info.html"> <i
-                                            class="fa-xl fa-solid fa-pen-to-square"></i></a></div>
+                              <button type="button" class="btn btn-success" onclick="updateData(${i})">O</button>
                             </th>
                             <th>
-                                <div class="container text-center"><a class="text-danger" href=""> <i
-                                            class="fa-xl fa-solid fa-square-xmark"></i></a></div>
+                              <button type="button" class="btn btn-danger" onclick="eraseData(${response.data[i].id})">X</button>
                             </th>
                         </tr>`;
     }
@@ -66,4 +63,25 @@ function logOut() {
   localStorage.removeItem("token_access");
   localStorage.removeItem("token_refresh");
   location.href = "../../index.html";
+}
+
+function updateData(id) {
+  const email = document.querySelector(`#email-${id}`).innerHTML;
+  console.log(email);
+  localStorage.setItem("email", email);
+  location.href = "../../html/actualizar-info.html";
+}
+
+async function eraseData(id) {
+  await verifyToken();
+  axios.delete(`http://127.0.0.1:5000/usuario/${id}`, { 
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("token_access")}`
+    } 
+  }).then((result) => {
+    location.reload();
+  })
+  .catch((error) => {
+    logOut();
+  });
 }

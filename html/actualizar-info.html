@@ -70,19 +70,25 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control form-user" id="direccion"
                                             placeholder="Dirección">
+                                    </div>                     
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-user"
+                                                    id="contraseña" placeholder="Contraseña">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-user"
+                                                    id="contraseña2" placeholder="Confirme la contraseña">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <Select class="form-control form-user" name="categoria" id="categoria">
-                                            <option selected>Categoria</option>
-                                            <option value="c1">c1</option>
-                                            <option value="c2">c2</option>
-                                        </Select> 
-                                    </div>                             
-                                    <div class="form-group">
-                                            <input type="password" class="form-control form-user"
-                                                id="contraseña" placeholder="Contraseña">
+                                        <input type="newPassword" class="form-control form-user"
+                                            id="nuevaContraseña" placeholder="Nueva contraseña (Deje en blanco si lo desea)">
                                     </div>
-                                    
                                     <div class="row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <a href="tables.html" class="btn btn-primary btn-user btn-block">
@@ -90,9 +96,7 @@
                                             </a>
                                         </div>
                                         <div class="col-sm-6">
-                                            <a href="tables.html" class="btn btn-primary btn-user btn-block">
-                                                Actualizar
-                                            </a>
+                                            <button type="button" class="btn btn-primary btn-user btn-block" id="actualizar">Actualizar</button>
                                         </div>
                                     </div>
                                 </form>
