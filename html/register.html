@@ -25,9 +25,9 @@
 <body class="bg-gradient-primary">
 
     <div class="container">
-        <div class="row justify-content-center mb-5">
+        <div class="row justify-content-center">
 
-            <div class="col-xl-6 col-lg-6 col-md-6 mt-5">
+            <div>
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
@@ -38,60 +38,86 @@
                                         <h1 class="h4 text-gray-900 mb-4">Registrar deportistas</h1>
                                     </div>
                                     <form class="user md-form">
-                                        <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <div class="form-group">
+                                            <div class="input-group has-validation">
                                                 <input type="text" class="form-control form-user" id="nombre"
-                                                    placeholder="Nombre">
+                                                placeholder="Nombre">    
                                             </div>
-                                            <div class="col-sm-6">
-                                                <input type="text" class="form-control form-user" id="apellido"
-                                                    placeholder="Apellido">
+                                            <div id="validationNombre" class="invalid-feedback">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-user" id="email"
+                                            <div class="input-group has-validation">
+                                                <input type="email" class="form-control form-user" id="email"
                                                 placeholder="Correo">
+                                            </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-3 mb-3 mb-sm-0 ">
-                                                <Select class="form-control form-user" name="tipodocumento"
-                                                    id="tipodocumento">
-                                                    <option selected>Tipo </option>
-                                                    <option value="CC">CC</option>
-                                                    <option value="TI">TI</option>
-                                                    <option value="PAS">PAS</option>
-                                                </Select>
+                                                <div class="input-group has-validation">
+                                                    <Select class="form-control form-user" name="tipoDocumento"
+                                                        id="tipoDocumento">
+                                                        <option selected>Tipo</option>
+                                                        <option value="CC">CC</option>
+                                                        <option value="TI">TI</option>
+                                                        <option value="PAS">PAS</option>
+                                                    </Select>
+                                                </div>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control form-user" id="documento"
-                                                    placeholder="Numero de documento">
+                                                <div class="input-group has-validation">
+                                                    <input type="text" class="form-control form-user" id="documento"
+                                                        placeholder="Numero de documento">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <Select class="form-control form-user " name="sexo" id="sexo">
-                                                <option selected>Sexo</option>
-                                                <option value="F">Femenino</option>
-                                                <option value="M">Masculino</option>
-                                            </Select>
+                                            <div class="input-group has-validation">
+                                                <Select class="form-control form-user " name="sexo" id="sexo">
+                                                    <option selected>Sexo</option>
+                                                    <option value="F">Femenino</option>
+                                                    <option value="M">Masculino</option>
+                                                </Select>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-user" id="direccion"
-                                                placeholder="Dirección">
+                                            <div class="input-group has-validation">
+                                                <input type="date" class="form-control form-user" id="fecha"
+                                                    placeholder="Fecha de nacimiento">
+                                            </div>
                                         </div>
+                                        <div class="form-group">
+                                            <div class="input-group has-validation">
+                                                <input type="text" class="form-control form-user" id="direccion"
+                                                    placeholder="Dirección">
+                                            </div>
+                                        </div>
+                                        
 
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="password" class="form-control form-user" id="contraseña"
-                                                    placeholder="Contraseña">
+                                                <div class="input-group has-validation">
+                                                    <input type="password" class="form-control form-user" id="contrasena"
+                                                        placeholder="Contraseña">
+                                                </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="password" class="form-control form-user"
-                                                    id="repetircontraseña" placeholder="Repita la contraseña">
+                                                <div class="input-group has-validation">
+                                                    <input type="password" class="form-control form-user"
+                                                        id="repetirContrasena" placeholder="Repita la contraseña">
+                                                </div>
                                             </div>
                                         </div>
-                                        <a href="adminvista.html" class="btn btn-primary btn-user btn-block">
-                                            Registrar
-                                        </a>
+                                        <div class="row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <a href="tables.html" class="btn btn-primary btn-user btn-block">
+                                                    Volver
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <button type="button" class="btn btn-primary btn-user btn-block" id="registrar">Registrar</button>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -109,16 +135,9 @@
             </div>
         </div>
     </footer>
-    <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/connection/registrar.js"></script>
 </body>
 
 </html>

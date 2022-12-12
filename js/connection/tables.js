@@ -1,4 +1,5 @@
 const table = document.querySelector("#table");
+const botonAgregar = document.querySelector("#agregar");
 
 window.addEventListener("load", getData());
 

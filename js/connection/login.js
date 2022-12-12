@@ -13,7 +13,23 @@ login.addEventListener("click", () => {
     localStorage.setItem("token_refresh", response.data.refresh_token);
     localStorage.setItem("user", email);
     localStorage.setItem("password", password);
-    location.href = "../../html/tables.html";
+    axios(`http://127.0.0.1:5000/usuario/${email}`, {
+      method: "get",
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("token_access")}`
+      }
+    })
+    .then((response) => {
+      if(response.data.admin) {
+        location.href = "../../html/tables.html";
+      }
+      else {
+        location.href = "../../html/profile.html";
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   })
   .catch((error) => {
     alert("Usuario o contraseña inválidos")

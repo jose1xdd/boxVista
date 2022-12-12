@@ -142,8 +142,15 @@
             <div class="container-fluid">
                 <!-- Page Heading -->
                 <div class="container">
-                    <h1 class="h3 mb-2 text-gray-800">Deportistas</h1>
-                    <p class="mb-4">Registro de la base de datos de Deportistas</p>
+                    <div class="row">
+                        <div class="col-8">
+                            <h1 class="h3 mb-2 text-gray-800">Deportistas</h1>
+                            <p class="mb-4">Registro de la base de datos de Deportistas</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <a class="btn btn-info" href="register.html" role="button" id="agregar">Registrar deportista</a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- DataTales Example -->
@@ -222,7 +229,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button type="button" class="btn btn-primary" id="logout" onclick="logOut()">Logout</button>
                 </div>
             </div>
         </div>
