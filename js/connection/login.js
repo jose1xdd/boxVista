@@ -20,10 +20,13 @@ login.addEventListener("click", () => {
       }
     })
     .then((response) => {
+      localStorage.setItem("email", email);
       if(response.data.admin) {
+        localStorage.setItem("admin", "true");
         location.href = "../../html/tables.html";
       }
       else {
+        localStorage.setItem("admin", "false");
         location.href = "../../html/profile.html";
       }
     })

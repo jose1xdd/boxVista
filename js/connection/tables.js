@@ -1,5 +1,4 @@
 const table = document.querySelector("#table");
-const botonAgregar = document.querySelector("#agregar");
 
 window.addEventListener("load", getData());
 
@@ -21,15 +20,16 @@ async function getData() {
     const nombre = document.querySelector("#nombre");
     nombre.innerHTML = localStorage.getItem("user");
     for(let i in response.data) {
+      if(response.data[i].email == localStorage.getItem("user")) continue;
       console.log(i);
       table.innerHTML += `<tr class="text-center">
                             <td>${response.data[i].nombre}</td>
                             <td id=email-${i}>${response.data[i].email}</td>
                             <td>
-                              <button type="button" class="btn btn-primary" onclick="sendData(${i})">_</button>
+                              <button type="button" class="btn btn-primary" onclick="readData(${i})">_</button>
                             </td>
                             <td>
-                              <button type="button" class="btn btn-warning" onclick="sendData(${i})">^</button>
+                              <button type="button" class="btn btn-warning" onclick="readTest(${i})">^</button>
                             </td>
                             <th>
                               <button type="button" class="btn btn-success" onclick="updateData(${i})">O</button>
@@ -85,4 +85,18 @@ async function eraseData(id) {
   .catch((error) => {
     logOut();
   });
+}
+
+function readData(id) {
+  const email = document.querySelector(`#email-${id}`).innerHTML;
+  console.log(email);
+  localStorage.setItem("email", email);
+  location.href = "../../html/profile.html";
+}
+
+function readTest(id) {
+  const email = document.querySelector(`#email-${id}`).innerHTML;
+  console.log(email);
+  localStorage.setItem("email", email);
+  location.href = "../../html/test.html";
 }

@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row justify-content-center">
 
-            <div class="col-xl-6 col-lg-6 col-md-6 mt-5">
+            <div class="mt-3">
                 <div class="card o-hidden border-0 shadow-lg">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
@@ -38,58 +38,76 @@
                                         <h1 class="h4 text-gray-900 mb-4">Registrar Test</h1>
                                     </div>
                                     <form class="user">
-                                        <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="text" class="form-control form-user" id="Trimestre"
-                                                    placeholder="Trimestre">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="text" class="form-control form-user" id="Fuerza General"
-                                                    placeholder="Fuerza General">
+                                        <div class="form-group">
+                                            <div class="input-group has-validation">
+                                                <input type="date" class="form-control form-user" id="fecha"
+                                                    placeholder="Fecha">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-user" id="Brazos"
-                                                placeholder="Brazos">
+                                            <div class="input-group has-validation">
+                                                <input type="text" class="form-control form-user" id="brazos"
+                                                    placeholder="Brazos">
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-user" id="Piernas"
-                                                placeholder="Piernas">
+                                            <div class="input-group has-validation">
+                                                <input type="text" class="form-control form-user" id="piernas"
+                                                    placeholder="Piernas">
+                                            </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="text" class="form-control form-user" id="Abdomen"
-                                                    placeholder="Abdomen">
+                                                <div class="input-group has-validation">
+                                                    <input type="text" class="form-control form-user" id="abdomen"
+                                                        placeholder="Abdomen">
+                                                </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control form-user" id="Fuerza General"
-                                                    placeholder="Fuerza General">
+                                                <div class="input-group has-validation">
+                                                    <input type="text" class="form-control form-user" id="fuerzaGeneral"
+                                                        placeholder="Fuerza General">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-user" id="Resistencia Fuerza"
-                                                placeholder="Resistencia Fuerza">
+                                            <div class="input-group has-validation">
+                                                <input type="text" class="form-control form-user" id="resistenciaFuerza"
+                                                    placeholder="Resistencia Fuerza">
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-user" id="Resistencia Fuerza"
-                                                placeholder="Resistencia Vueltas">
+                                            <div class="input-group has-validation">
+                                                <input type="text" class="form-control form-user" id="resistenciaVueltas"
+                                                    placeholder="Resistencia Vueltas">
+                                            </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="text" class="form-control form-user" id="Repeticiones"
-                                                    placeholder="Repeticiones">
+                                                <div class="input-group has-validation">
+                                                    <input type="text" class="form-control form-user" id="peso"
+                                                        placeholder="Peso">
+                                                </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control form-user" id="Resistencia Fuerza G"
-                                                    placeholder="Resistencia Fuerza G">
+                                                <div class="input-group has-validation">
+                                                    <input type="text" class="form-control form-user" id="resistenciaFuerzaG"
+                                                        placeholder="Resistencia Fuerza G">
+                                                </div>
                                             </div>
                                         </div>
-                                        
-                                        <a href="tables.html" class="btn btn-primary btn-user btn-block">
-                                            Registrar
-                                        </a>
+                                        <div class="row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <a href="test.html" class="btn btn-primary btn-user btn-block">
+                                                    Volver
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <button type="button" class="btn btn-primary btn-user btn-block" id="registrar">Registrar</button>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -100,23 +118,15 @@
 
         </div>
     </div>
-    <footer class="sticky-footer bg-white fixed-bottom">
+    <footer class="sticky-footer bg-white mt-3">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
                 <span>© 2022 DepoNorBox Todos los derechos reservados | UFPS</span>
             </div>
         </div>
     </footer>
-    <!-- Bootstrap core JavaScript-->
-    <script src=" ../vendor/jquery/jquery.min.js"></script>
-    <script src=" ../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src=" ../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src=" ../js/sb-admin-2.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/connection/registrarTest.js"></script>
 </body>
 
 </html>

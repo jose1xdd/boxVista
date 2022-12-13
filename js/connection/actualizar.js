@@ -5,64 +5,66 @@ const documento = document.querySelector("#documento");
 const sexo = document.querySelector("#sexo");
 const direccion = document.querySelector("#direccion");
 const actualizar = document.querySelector("#actualizar");
+const newPassword = document.querySelector("#nuevaContraseña");
 
 window.addEventListener("load", getData());
 
 actualizar.addEventListener("click", async () => {
-  const password1 = document.querySelector("#contraseña").value;
-  const password2 = document.querySelector("#contraseña2").value;
-  console.log(password1);
-  console.log(password2);
-  console.log(localStorage.getItem("password"));
-  if(password1 == password2 && localStorage.getItem("password") == password1) {
-    const newPassword = (document.querySelector("#nuevaContraseña").value != "") ? document.querySelector("#nuevaContraseña").value : password1;
-    if(localStorage.getItem("token_access") == null || localStorage.getItem("token_refresh") == null) {
-      logOut();
-    } 
-    await verifyToken();
-    axios(`http://127.0.0.1:5000/usuario/${email.value}`, {
-      method: "get",
+  if(localStorage.getItem("token_access") == null || localStorage.getItem("token_refresh") == null) {
+    logOut();
+  } 
+  await verifyToken();
+  axios(`http://127.0.0.1:5000/usuario/${email.value}`, {
+    method: "get",
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("token_access")}`
+    }
+  })
+  .then((response) => {
+    console.log(response);
+    console.log(newPassword);
+    axios.put(`http://127.0.0.1:5000/usuario/${response.data.id}`, {
+      "email": email.value,
+      "cedula": documento.value,
+      "admin": response.data.admin,
+      "type_doc": tipoDocumento.value,
+      "nombre": nombre.value,
+      "fecha_nacimiento": response.data.fecha_nacimiento,
+      "sexo": sexo.value,
+      "direccion": direccion.value
+    }, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token_access")}`
+      } 
+    }).then((result) => {
+      if(newPassword.value != "") {
+        axios.put(`http://127.0.0.1:5000/usuario/${response.data.id}/password`, {
+          "password" : newPassword.value
+        }, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem("token_access")}`
+          }   
+        }).then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          alert(error);
+        });
       }
-    })
-    .then((response) => {
-      console.log(response);
-      console.log(newPassword);
-      axios.put(`http://127.0.0.1:5000/usuario/${response.data.id}`, {
-        "email": email.value,
-        "cedula": documento.value,
-        "password": newPassword,
-        "admin": response.data.admin,
-        "type_doc": tipoDocumento.value,
-        "nombre": nombre.value,
-        "fecha_nacimiento": response.data.fecha_nacimiento,
-        "sexo": sexo.value,
-        "direccion": direccion.value
-      }, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem("token_access")}`
-        } 
-      }).then((result) => {
-        alert(result.status + " Actualizado exitosamente..");
-        location.href = "../../html/tables.html";
-      })
-      .catch((error) => {
-        alert(error);
-      });
+      alert(result.status + " Actualizado exitosamente..");
+      location.href = "../../html/tables.html";
     })
     .catch((error) => {
-      console.log(error);
+      alert(error);
     });
-  }
-  else {
-    alert("Las contraseñas no coinciden");
-  }
+  })
+  .catch((error) => {
+    console.log(error);
+  });
    
 });
 
 async function getData() {
-  console.log(nombre.value);
   console.log(localStorage.getItem("email"));
   console.log(localStorage.getItem("token_access"));
   console.log(localStorage.getItem("token_refresh"));
